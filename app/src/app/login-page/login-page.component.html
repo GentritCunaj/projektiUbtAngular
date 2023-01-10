@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+    <div class="forms">
+        <div class="form login">
+            <span class="title">Login</span>
+
+            <form method="post" class="form"  name="loginForm">
+                <div class="input-field">
+                    <input type="email" id="email"  placeholder="Enter your email">
+                    <i class="fa fa-solid fa-envelope icon"></i>
+
+                </div>
+                
+                <div class="input-field">
+                    <input type="password" id="password" class="password" placeholder="Enter your password">
+                    <i class="fa fa-solid fa-eye-slash showhidepw"></i>
+                </div>
+
+                <div class="checkbox-text">
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="logcheck">
+                        <label for="logcheck" class="text">Remember me</label>
+                    </div>
+                </div>
+                
+            </form>
+            <div class="input-field button">
+                <button (click)="submit()" type="submit">Login</button>
+            </div>
+            <div class="login-signup">
+                <span class="text">Not a member?</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/register" class="signup-link">Sign up</a>
+            </div>
+            <div class="login-signup">
+               
+                <a href="#" class="signup-link">Back Home</a>
+            </div>
+
+            <!-- <div class="form signup">
+                <span class="title">Registration</span>
+                <form action="" name="signupform"></form>
+                <form name="signUpform">
+                    <div class="input-field">
+                        <input type="text" name="name" placeholder="Enter your name" />
+                        <i class="fa fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="email" placeholder="Enter your email">
+                        <i class="fa fa-solid fa-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="password" placeholder="create your password" class="password"/>
+                        <i class="fa fa-solid fa-lock icon"></i>
+                        <i class="fa fa-solid fa-eye-slash showhidepw"></i>
+
+                    </div>
+                    <div class="input-field">
+                        <input type="password" name="confirmpwd" class="password" class="password" placeholder="confirm password"/>
+                        <i class="fa fa-solid fa-lock icon"></i>
+                        <i class="fa fa-solid fa-eye-slash showhidepw"></i>
+                    </div>
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon">
+                            <label for="termCon" class="text">I accept all terms and conditions.</label>
+
+                        </div>
+                    </div>
+                    <div class="input-field button">
+                        <input type="submit" value="signup">
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">Already a member ?</span>
+                    <a href="#" class="text login-link">Login Now</a>
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+</div>

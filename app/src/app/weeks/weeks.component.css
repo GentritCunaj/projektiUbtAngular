@@ -1,0 +1,50 @@
+
+.week-content {
+    border: 1px solid black;
+    margin: 20px;
+    height: 50%;
+    padding: 20px;
+    width: 20%;
+    display: inline-block;
+    align-self: flex-start;
+    flex-direction: column;
+}
+
+.week-content h4,h3,p {
+    font-family: 'Verdana';
+    align-self: center;
+
+}
+
+
+.svg-div {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.svg {
+    width: 15%;
+    position: relative;
+    height: 15%;
+    float: right;
+    padding-left: 5px;
+}
+
+
+.plus-svg {
+    width: 10%;
+    position: relative;
+    height: 10%;
+    float: right;
+    padding-left: 5px;
+}
+
+.svg:hover {
+    cursor: pointer;
+    width: 17%;
+}
+
+.plus-svg:hover {
+    width: 11%;
+    cursor: pointer;
+}

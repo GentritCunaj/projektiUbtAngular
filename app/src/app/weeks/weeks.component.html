@@ -1,0 +1,29 @@
+
+<div *ngIf="nightModeBoolean" class="week-content">
+    <div class="svg-div">
+        <a (click)="nightMode()" >
+        <img class="svg" src="../../assets/sleep-svgrepo-com.svg"/></a>
+        
+    </div>
+    <h3>{{week}}</h3>
+ 
+    <p *ngFor="let note of notes">
+        {{note.reps}}{{note.desc}}{{note.weight}}
+    </p>
+    
+   <a [routerLink]="week">
+    <img class="plus-svg" src="../../assets/edit-button-svgrepo-com.svg"/>
+   </a>
+
+</div>
+
+<div *ngIf="!nightModeBoolean" class="week-content">
+    <div class="svg-div">
+        <a (click)="nightMode()" >
+        <img class="svg" src="../../assets/sleep-svgrepo-com.svg"/></a>
+        
+    </div>
+
+    <h3>Rest Day</h3>
+
+</div>
