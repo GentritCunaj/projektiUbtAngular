@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutpageComponent } from './aboutpage/aboutpage.component';
 
 
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -8,9 +9,9 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 
 const routes: Routes = [
   {path:'',component:MainComponentComponent},
-
   {path:'login',component:LoginPageComponent},
-  {path:'register',component:RegisterPageComponent}
+  {path:'register',component:RegisterPageComponent},
+  {path:'about',component:AboutpageComponent}
 
   
 ];
