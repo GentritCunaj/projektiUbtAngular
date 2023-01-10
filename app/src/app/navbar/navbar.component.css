@@ -1,0 +1,45 @@
+.navbar {
+    border-bottom: 2px solid black;
+    height: 80px;
+    
+}
+
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    align-items: flex-end;
+    list-style-type:none;
+    
+
+}
+
+li {
+    padding-left: 20px;
+    position: relative;
+    font-family: 'Verdana';
+}
+
+li a{
+    text-decoration: none;
+    color:black;
+}
+
+li a:hover {
+    color: greenyellow;
+    transition: 0.3s ease-out;
+}
+
+.img-div {
+    height: 150px;
+    width: 150px;
+    background-image: url('../../assets/fitness.png');
+    background-size: cover;
+    margin-top: -40px;
+    padding: 0;
+    display: flex;
+    float: left;
+    ;
+
+}
