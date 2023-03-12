@@ -8,11 +8,14 @@ import { Coach } from '../shared/models/Coach';
   styleUrls: ['./aboutpage.component.css'],
   encapsulation:ViewEncapsulation.None
 })
+
 export class AboutpageComponent implements AfterViewInit,OnInit{
+
 
   @ViewChild('slidecontainer') slideContainer:ElementRef;
   @ViewChild('prevbtn') prevbtn:ElementRef;
   @ViewChild('nextbtn') nextbtn:ElementRef;
+
 
   coaches : Coach[] = new Array<Coach>;
   coach :Coach = new Coach();
@@ -113,6 +116,8 @@ export class AboutpageComponent implements AfterViewInit,OnInit{
     })
     
       
+=======
+  
     
   }
 
