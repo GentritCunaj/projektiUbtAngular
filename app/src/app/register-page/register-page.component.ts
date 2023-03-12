@@ -69,7 +69,7 @@ export class RegisterPageComponent implements OnInit{
       this.setError(this.password, 'Password is required');
     }
     else if (
-      passwordValue.length < 5
+      passwordValue.length < 8
     ){
       this.setError(this.password,'Password must be at least 8 characters.')
     }
@@ -88,7 +88,7 @@ export class RegisterPageComponent implements OnInit{
       this.setError(this.address,'Address is required')
     }
     else {
-      console.log('aa')
+    
       this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl;
       this.isSubmitted = true;
       const user:IUserRegister = {
@@ -98,10 +98,11 @@ export class RegisterPageComponent implements OnInit{
         confirmPassword:confirmpasswordValue,
         address:addressValue
       }
-      this.userService.register(user).subscribe(_=>{
-        console.log('aaaas')
-        this.router.navigateByUrl(this.returnUrl);
-      })
+      this.userService.register(user).subscribe(data=>{
+
+        this.userService.loggedIn = data.role;
+      this.router.navigateByUrl(this.returnUrl);
+    })
     }
     
 

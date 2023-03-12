@@ -1,7 +1,8 @@
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Injectable, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable, window } from 'rxjs';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -33,18 +34,23 @@ export class LoginPageComponent implements OnInit{
 		{
 			alert("Enter valid email id.");
 		}
-		else if(pwd.length < 5 || pwd.length > 5)
+		else if(pwd.length < 8 || pwd.length >16)
 		{
-			alert("Password min and max length is 5.");
+			alert("Password min length is 8 and maximum is 16.");
 		}
 		else
 		{
     
     this.isSubmitted = true;
     
-      this.userService.login({email:uname, password:pwd}).subscribe(()=>{
-      this.router.navigateByUrl(this.returnUrl);
-      })
+    this.userService.login({email:uname, password:pwd}).subscribe((data:any)=>{
+      console.log(data.name);
+
+      this.userService.loggedIn = data.role;
+    this.router.navigateByUrl(this.returnUrl);
+
+    })
+  }
     }
    
   }

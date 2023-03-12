@@ -12,24 +12,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+
+
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { AboutpageComponent } from './aboutpage/aboutpage.component';
+import { FooterComponent } from './footer/footer.component';
+import { DayDataComponent } from './day-data/day-data.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ActivateService } from './services/activate.service';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponentComponent,
-    NavbarComponent,
+
     WeeksComponent,
-    FooterComponent,
+
     LoginPageComponent,
     RegisterPageComponent,
-    AboutpageComponent
+    NavbarComponent,
+    AboutpageComponent,
+    FooterComponent,
+    DayDataComponent,
+    ContactUsComponent,
+    DashboardComponent,
+
     
   ],
   imports: [
@@ -48,7 +61,7 @@ import { AboutpageComponent } from './aboutpage/aboutpage.component';
       newestOnTop:false
     })
   ],
-  providers: [],
+  providers: [ActivateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

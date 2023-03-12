@@ -115,8 +115,7 @@ export class AboutpageComponent implements AfterViewInit,OnInit{
     
     })
     
-      
-=======
+
   
     
   }
