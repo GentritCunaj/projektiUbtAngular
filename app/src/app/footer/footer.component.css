@@ -1,0 +1,31 @@
+.footer {
+    border-top: 2px solid black;
+    position: static;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    font-family: 'Verdana';
+}
+
+.footer-heading {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+}
+
+.footer-heading h2 {
+    margin-bottom: 2rem;
+}
+
+.footer-heading a {
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    color: black;
+}
+
+.footer-heading a:hover {
+    color: greenyellow;
+    transition: 0.3s ease-out;
+}

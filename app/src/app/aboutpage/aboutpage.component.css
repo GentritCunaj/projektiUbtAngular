@@ -1,4 +1,5 @@
 :root {
+
     /* dark shades of primary color*/
     --clr-primary-1: hsl(205, 86%, 17%);
     --clr-primary-2: hsl(205, 77%, 27%);
@@ -166,3 +167,4 @@
       transform: translateX(-100%);
     }
     
+
