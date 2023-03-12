@@ -18,6 +18,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { AboutpageComponent } from './aboutpage/aboutpage.component';
+import { ContactUsComponent } from './contactus/contact-us.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AboutpageComponent } from './aboutpage/aboutpage.component';
     FooterComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    AboutpageComponent
+    AboutpageComponent,
+    ContactUsComponent
     
   ],
   imports: [
