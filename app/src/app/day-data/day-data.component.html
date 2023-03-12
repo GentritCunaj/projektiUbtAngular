@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+
+
+
+<div #week class="week-content">
+    <h1>{{idParams}}</h1>
+    <p *ngFor="let note of notes" >
+       {{note.description}} {{note.weight}}kg : {{note.reps}}reps <a (click)="onDelete(note.day_id)"><img class="delete-svg"  src="../../assets/delete-svgrepo-com.svg"/></a>
+    </p>
+   
+    <form  [formGroup]="workoutGroup" (ngSubmit)="onSubmit()">
+        <div class="field">
+            <label class="label">Workout</label>
+            <div class="control">
+                
+                <input  type="text" formControlName="description" [formControl]="myControl" class="input" matInput [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" >
+                    <mat-option *ngFor="let data of filteredOptions |async" [value]="data">
+                        {{data}}
+                    </mat-option>
+                </mat-autocomplete>
+           
+            
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Weight</label>
+            <div class="control">
+                <input type="number" formControlName="weight" class="input">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Reps</label>
+            <div class="control">
+                <input type="number" formControlName="reps" class="input">
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button" type="submit">Add workout</button>
+        </div>
+    </form> 
+
+
+
+
+    <!-- <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+        <div class="field">
+            <label class="label">Workout</label>
+            <div class="control">
+              
+                <mat-form-field>
+                <input  type="text" name="desc"    [ngModel]="note.desc" class="input" matInput [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" >
+                    <mat-option *ngFor="let data of filteredOptions |async" [value]="data">
+                        {{data}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Weight</label>
+            <div class="control">
+                <input type="number" name="weight" [ngModel]="note.weight" class="input">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Reps</label>
+            <div class="control">
+                <input type="number" name="reps" [ngModel]="note.reps" class="input">
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button" type="submit">Add workout</button>
+        </div>
+    </form> -->
+
+
+</div>
