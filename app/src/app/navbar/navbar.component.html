@@ -2,15 +2,24 @@
     <div class="img-div">
     </div>
     <ul>
+        <ng-content></ng-content>
         <li>
             <a href="#">Home</a>
         </li>
         <li>
             <a routerLink="/about">About</a>
         </li>
+
         <li>
-            <a >{{user.name}}</a>
+            <a routerLink="/contact">Contact Us</a>
         </li>
+        <li *ngIf="user.role == 'admin'">
+            <a routerLink="/dashboard">Dashboard</a>
+        </li>
+
+       <li>
+        <a >{{user.name}}</a>
+       </li>
         <li *ngIf="!user.name">
             <a href="/login">Login</a>
         </li>
@@ -18,6 +27,5 @@
             <a (click)="logout()">Logout</a>
         </li>
 
-        
     </ul>
 </nav>
