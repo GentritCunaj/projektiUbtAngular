@@ -1,28 +1,26 @@
 <app-navbar></app-navbar>
 
-
-
 <div #week class="week-content">
     <h1>{{idParams}}</h1>
     <p *ngFor="let note of notes" >
-       {{note.description}} {{note.weight}}kg : {{note.reps}}reps <a (click)="onDelete(note.day_id || 0)"><img class="delete-svg"  src="../../assets/delete-svgrepo-com.svg"/></a>
-
+              {{note.description}} {{note.weight}}kg : {{note.reps}}reps <a (click)="onDelete(note.day_id)"><img class="delete-svg"  src="../../assets/delete-svgrepo-com.svg"/></a>
   
-    <form  [formGroup]="workoutGroup" (ngSubmit)="onSubmit()">
-        <div class="field">
-            <label class="label">Workout</label>
-            <div class="control">
-                
-                <input  type="text" formControlName="description" [formControl]="myControl" class="input" matInput [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete" >
-                    <mat-option *ngFor="let data of filteredOptions |async" [value]="data">
-                        {{data}}
-                    </mat-option>
-                </mat-autocomplete>
-           
-            
-            </div>
-        </div>
+              <form  [formGroup]="workoutGroup" (ngSubmit)="onSubmit()">
+                <div class="field">
+                    <label class="label">Workout</label>
+                    <div class="control">
+                        
+                        <input  type="text" formControlName="description" [formControl]="myControl" class="input" matInput [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" >
+                            <mat-option *ngFor="let data of filteredOptions |async" [value]="data">
+                                {{data}}
+                            </mat-option>
+                        </mat-autocomplete>
+                   
+                    
+                    </div>
+                </div>
+        
 
         <div class="field">
             <label class="label">Weight</label>

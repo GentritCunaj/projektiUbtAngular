@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DayService } from '../services/day.service';
+import { UserService } from '../services/user.service';
 import { Day } from '../shared/models/Day';
+import { User } from '../shared/models/User';
 
 
 @Component({
@@ -25,12 +27,22 @@ export class WeeksComponent{
   notes: Day[] = new Array<Day>();
   note: Day = new Day();
   idParams = ''
-  constructor(private dayService: DayService) {
+  user:User;
+
+  constructor(private dayService: DayService,private userService:UserService) {
+    this.userService.userObservable.subscribe((newUser)=>{
+      this.user = newUser;
+
+    })
+   
   }
+  
+  
 
   ngOnInit(): void {
-    this.dayService.getAll().subscribe(res => {
-      this.notes = res;
+    this.dayService.getAll(this.user.user_id).subscribe((res:any) => {
+
+      this.notes = res.data;
 
       this.notes = this.notes.filter((n)=>{
         return n.day === this.week
