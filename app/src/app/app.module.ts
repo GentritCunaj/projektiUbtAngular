@@ -7,7 +7,6 @@ import { MainComponentComponent } from './main-component/main-component.componen
 
 import { WeeksComponent } from './weeks/weeks.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import {DragDropModule} from '@angular/cdk/drag-drop';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -18,6 +17,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { AboutpageComponent } from './aboutpage/aboutpage.component';
+import { ContactUsComponent } from './contactus/contact-us.component';
 
 
 @NgModule({
@@ -29,14 +29,14 @@ import { AboutpageComponent } from './aboutpage/aboutpage.component';
     FooterComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    AboutpageComponent
+    AboutpageComponent,
+    ContactUsComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    DragDropModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatAutocompleteModule,
