@@ -11,22 +11,24 @@ import { HttpClient } from '@angular/common/http';
 export class DayService {
   nameToFilter:any = '';
   notes: Day[] = new Array<Day>();
+
   constructor(private http:HttpClient) { }
+  url = "http://localhost:80/databaza/";
 
 
 
 
   // days:Day[] = new Array<Day>();
-  getAll() :Observable<Day[]> {
-    return this.http.get<Day[]>("http://localhost:5000/data");
+  getAll(id:number) :Observable<Day[]> {
+    return this.http.get<Day[]>(this.url + "access.php?user_id="+id);
   }
 
   createExc( day:Day ): Observable<Day> {
-    return this.http.post<Day>("http://localhost:5000/data",day);
+    return this.http.post<Day>(this.url + "create.php",day);
   }
 
-  deleteExc(id:String):Observable<Day>{
-    return this.http.delete<Day>("http://localhost:5000/data/"+id);
+  deleteExc(id:number):Observable<Day>{
+    return this.http.delete<Day>(this.url + "delete.php?day_id=" +id);
   }
 
  
@@ -46,19 +48,16 @@ export class DayService {
     
   }
 
-
-
-  add(param:string,day:Day) {
+  add(param:string,id:number,day:Day) {
     day.day = param;
-    const myId = uuid.v4();
-    day.id = myId;
+    day.user_fk = id;
     this.createExc(day).subscribe();
 
 
   }
 
 
-  delete(id:string){
+  delete(id:number){
     this.deleteExc(id).subscribe(d => console.log(d))
     
     

@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { IUserLogin } from '../interfaces/IUserLogin';
 import { IUserRegister } from '../interfaces/IUserRegister';
+import { IUserUpdate } from '../interfaces/IUserUpdate';
 import { User } from '../shared/models/User';
 
 
@@ -17,14 +18,22 @@ export class UserService {
     this.userObservable = this.userSubject.asObservable();
   }
 
+  loggedIn:string;
+
+  setRoleF(userUpdate:IUserUpdate):Observable<User>{
+    return this.http.put<User>("http://localhost/databaza/setRole.php",userUpdate);
+
+  }
+
   login(userLogin:IUserLogin):Observable<User>{
-    return this.http.post<User>("http://localhost:5000/userdata/login",userLogin).pipe(
+    return this.http.post<User>("http://localhost/databaza/login.php",userLogin).pipe(
       tap({
-        next: (user) => {
-          this.setUserToLocalStorage(user);
-          this.userSubject.next(user);
+        next: (user:any) => {
+          console.log(user)
+          this.setUserToLocalStorage(user.data);
+          this.userSubject.next(user.data);
           this.toastrService.success(
-            `Welcome to FitnessApp ${user.name}!`,
+            `Welcome to FitnessApp ${user.data.name}!`,
             "Login Successful"
           )
         },
@@ -36,15 +45,17 @@ export class UserService {
     );
   }
 
+  
   register(userRegister:IUserRegister):Observable<User>{
-    return this.http.post<User>("http://localhost:5000/userdata/register",userRegister).pipe(
+    return this.http.post<User>("http://localhost/databaza/register.php",userRegister).pipe(
       tap({
-        next:(user)=>{
-          console.log('ktu')
-          this.setUserToLocalStorage(user);
-          this.userSubject.next(user);
+        
+        next:(user:any)=>{
+          console.log(user)
+          this.setUserToLocalStorage(user.data);
+          this.userSubject.next(user.data);
           this.toastrService.success(
-            `Welcome to FitnessApp ${user.name}`,
+            `Welcome to FitnessApp ${user.data.name}`,
             "Register Succsesful"
           )
 
@@ -55,6 +66,11 @@ export class UserService {
       })
     )
   }
+
+  getAllUsers():Observable<User[]>{
+    return this.http.get<User[]>("http://localhost/databaza/getUsers.php");
+  }
+
 
   logout() {
     this.userSubject.next(new User())
@@ -71,4 +87,9 @@ export class UserService {
     if (userJson) return JSON.parse(userJson) as User;
     return new User();
   }
+
+  setRole(userUpdate:IUserUpdate){
+   this.setRoleF(userUpdate).subscribe((data:any) => console.log(data))
+  }
+
 }
