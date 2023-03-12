@@ -1,7 +1,8 @@
 export class Day {
-    id!:string;
+    day_id!:number;
     day!:string;
-    desc!:string;
+    description!:string;
     weight!: number;
-    reps?:number;
+    reps!:number;
+    user_fk!:number;
 }
